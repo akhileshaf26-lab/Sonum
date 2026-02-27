@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sohum Shoppe | Luxury Fashion & Lifestyle</title>
+  <meta name="description" content="Sohum Shoppe luxury storefront experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#f8f6f2;--paper:#fff;--ink:#171717;--muted:#666;--gold:#9f7a3b;--line:#e8e2d8}
+    *{box-sizing:border-box} html,body{margin:0;padding:0}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+    h1,h2,h3,h4{font-family:"Playfair Display",serif;margin:0 0 .6rem}
+    a{text-decoration:none;color:inherit}
+    .topbar{background:#111;color:#fff;text-align:center;padding:.65rem;font-size:.82rem;letter-spacing:.04em}
+    .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1rem 4vw;background:rgba(248,246,242,.93);backdrop-filter:blur(7px);border-bottom:1px solid var(--line)}
+    .brand{font-weight:700;letter-spacing:.2em;font-size:.92rem}
+    .menu{display:flex;gap:1.1rem;list-style:none;padding:0;margin:0;font-size:.93rem}
+    .icons{display:flex;gap:.5rem}
+    .icon{width:2rem;height:2rem;border:1px solid #1d1d1d;border-radius:50%;display:grid;place-items:center;font-size:.9rem}
+    .toggle{display:none;border:1px solid #111;background:transparent;padding:.32rem .58rem}
+
+    .hero{min-height:76vh;display:grid;place-items:center;padding:4rem 4vw;background:linear-gradient(120deg,rgba(0,0,0,.5),rgba(0,0,0,.25)),url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=80') center/cover}
+    .hero-card{max-width:780px;color:#fff}
+    .eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:.75rem;margin-bottom:.5rem}
+    .hero h1{font-size:clamp(2rem,4.3vw,3.9rem)}
+    .hero p{max-width:620px;line-height:1.7;color:#f1f1f1}
+    .btn{display:inline-block;margin-top:1rem;padding:.78rem 1.15rem;background:#fff;color:#111;font-weight:700;border:1px solid #fff}
+
+    section{padding:4rem 4vw}
+    .title-row{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
+    .muted{color:var(--muted)}
+
+    .cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    .cat{background:var(--paper);border:1px solid var(--line)}
+    .cat img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+    .cat .text{padding:1rem}
+
+    .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fcfbf8}
+    .brands{display:flex;gap:.7rem;flex-wrap:wrap}
+    .brands span{padding:.56rem .92rem;border:1px solid var(--line);background:#fff;font-weight:600;font-size:.88rem;letter-spacing:.06em}
+
+    .products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .product{background:#fff;border:1px solid var(--line);padding:1rem}
+    .product img{width:100%;aspect-ratio:1/1;object-fit:cover;margin-bottom:.9rem}
+    .tag{font-size:.88rem;color:var(--muted)}
+    .ghost{margin-top:.6rem;width:100%;padding:.62rem;border:1px solid #111;background:transparent;font-weight:600}
+
+    .banner{display:grid;grid-template-columns:1.4fr 1fr;gap:1.25rem;background:#efe7da}
+    .signup{display:grid;gap:.55rem;align-content:start}
+    input{padding:.72rem;border:1px solid #cabfae;background:#fff}
+    .dark{padding:.7rem;border:1px solid #111;background:#111;color:#fff;font-weight:600}
+
+    footer{background:#111;color:#efefef;padding:2.4rem 4vw;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem}
+    footer a{display:block;color:#ddd;margin:.35rem 0}
+
+    @media (max-width:980px){.cat-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.banner{grid-template-columns:1fr}footer{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:700px){.toggle{display:block}.menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 4vw;flex-direction:column}.menu.open{display:flex}.cat-grid,.products,footer{grid-template-columns:1fr}.icons{margin-left:auto}}
+  </style>
+</head>
+<body>
+  <div class="topbar">Welcome to Sohum Shoppe — Luxury arrivals curated for you.</div>
+
+  <nav class="nav">
+    <a class="brand" href="#">SOHUM SHOPPE</a>
+    <button id="menuBtn" class="toggle" aria-label="Open menu">☰</button>
+    <ul id="menu" class="menu">
+      <li><a href="#new">New In</a></li>
+      <li><a href="#women">Women</a></li>
+      <li><a href="#men">Men</a></li>
+      <li><a href="#beauty">Beauty</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#brands">Brands</a></li>
+    </ul>
+    <div class="icons">
+      <span class="icon">⌕</span><span class="icon">♡</span><span class="icon">◌</span>
+    </div>
+  </nav>
+
+  <header id="new" class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">Sohum Curated Edit</div>
+      <h1>Luxury Fashion, Beauty & Lifestyle in One Destination</h1>
+      <p>Discover exclusive international labels, premium craftsmanship, and trend-defining collections. Designed for those who shop with taste.</p>
+      <a class="btn" href="#collections">Explore Collections</a>
+    </div>
+  </header>
+
+  <section id="collections">
+    <div class="title-row"><h2>Shop by Collection</h2><p class="muted">No prices shown — details available on request.</p></div>
+    <div class="cat-grid">
+      <article class="cat" id="women"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Women collection"><div class="text"><h3>Women</h3><p class="muted">Statement silhouettes, occasion edits, and timeless classics.</p></div></article>
+      <article class="cat" id="men"><img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=900&q=80" alt="Men collection"><div class="text"><h3>Men</h3><p class="muted">Tailored essentials and modern luxury streetwear pieces.</p></div></article>
+      <article class="cat" id="beauty"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80" alt="Beauty collection"><div class="text"><h3>Beauty</h3><p class="muted">Fragrances, skincare rituals, and prestige makeup icons.</p></div></article>
+      <article class="cat" id="home"><img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=900&q=80" alt="Home collection"><div class="text"><h3>Home</h3><p class="muted">Luxury decor and lifestyle accents for elevated living.</p></div></article>
+    </div>
+  </section>
+
+  <section id="brands" class="strip">
+    <h2>Featured Brands</h2>
+    <div class="brands">
+      <span>GUCCI</span><span>PRADA</span><span>VERSACE</span><span>BALENCIAGA</span><span>SAINT LAURENT</span><span>ARMANI</span><span>TOM FORD</span><span>CHLOÉ</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="title-row"><h2>Trending Now</h2><p class="muted">Editorial picks from Sohum Shoppe.</p></div>
+    <div class="products">
+      <article class="product"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Sneakers"><h3>Signature Leather Sneakers</h3><div class="tag">Footwear</div><button class="ghost">View Details</button></article>
+      <article class="product"><img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=700&q=80" alt="Tote"><h3>Structured Designer Tote</h3><div class="tag">Accessories</div><button class="ghost">View Details</button></article>
+      <article class="product"><img src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=700&q=80" alt="Fragrance"><h3>Limited Edition Fragrance</h3><div class="tag">Beauty</div><button class="ghost">View Details</button></article>
+      <article class="product"><img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=700&q=80" alt="Blazer"><h3>Embroidered Evening Blazer</h3><div class="tag">Apparel</div><button class="ghost">View Details</button></article>
+      <article class="product"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=700&q=80" alt="Skincare"><h3>Luxury Skincare Ritual Kit</h3><div class="tag">Beauty</div><button class="ghost">View Details</button></article>
+      <article class="product"><img src="https://images.unsplash.com/photo-1549200360-14cfe1229afc?auto=format&fit=crop&w=700&q=80" alt="Duffle"><h3>Monogram Travel Duffle</h3><div class="tag">Travel</div><button class="ghost">View Details</button></article>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div>
+      <div class="eyebrow">Sohum Privé</div>
+      <h2>Get early access to limited drops</h2>
+      <p class="muted">Join our members list for launch alerts, private previews, and invitation-only experiences.</p>
+    </div>
+    <form id="signup" class="signup">
+      <label for="email">Email address</label>
+      <input id="email" type="email" required placeholder="you@example.com" />
+      <button class="dark" type="submit">Join Now</button>
+      <small id="msg" aria-live="polite"></small>
+    </form>
+  </section>
+
+  <footer>
+    <div><h3>SOHUM SHOPPE</h3><p class="muted">Luxury fashion and lifestyle destination.</p></div>
+    <div><h4>Customer Care</h4><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Contact Us</a></div>
+    <div><h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Stores</a></div>
+    <div><h4>Follow</h4><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">YouTube</a></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => menu.classList.toggle('open'));
+
+    const signup = document.getElementById('signup');
+    const msg = document.getElementById('msg');
+    signup.addEventListener('submit', (e) => {
+      e.preventDefault();
+      msg.textContent = 'Thank you for joining Sohum Privé. We will contact you shortly.';
+      msg.style.color = '#1f5f2a';
+      signup.reset();
+    });
+  </script>
+</body>
+</html>
